@@ -1,0 +1,52 @@
+<form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="beer-settings__field">
+    <mat-label>
+      Sort by
+    </mat-label>
+    <mat-select formControlName="sortBy">
+      <mat-option *ngFor="let option of beerSortBy | keyvalue" [value]="option.value">
+        {{option.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="beer-settings__field">
+    <mat-label>
+      Sort dir
+    </mat-label>
+    <mat-select formControlName="sortDir">
+      <mat-option *ngFor="let option of beerSortDir | keyvalue" [value]="option.value">
+        {{option.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="beer-settings__field">
+    <mat-label>
+      Pagination limit
+    </mat-label>
+    <input matInput formControlName="limit" type="number">
+    <mat-error *ngIf="settingsForm.controls.limit.invalid">
+      The provided number has to be from 15 to 30 range.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="beer-settings__field">
+    <mat-label>
+      Layout theme
+    </mat-label>
+    <mat-select formControlName="themeMode">
+      <mat-option *ngFor="let option of themeMode | keyvalue" [value]="option.value">
+        {{option.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button
+    color="primary"
+    mat-raised-button
+    [disabled]="settingsForm.invalid"
+  >
+    Save settings
+  </button>
+</form>

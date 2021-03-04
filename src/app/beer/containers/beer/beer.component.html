@@ -1,0 +1,26 @@
+<div class="beer__header">
+  <button mat-button mat-raised-button color="primary" (click)="openSettings()">
+    Options
+  </button>
+</div>
+
+<div
+  class="beer__lists"
+  *ngIf="brewers$ | async as brewers"
+>
+  <app-beer-list
+    [brewers]="brewers"
+    [type]="brewerType.Favourite"
+  ></app-beer-list>
+
+  <app-beer-list
+    [brewers]="brewers"
+    [type]="brewerType.Popular"
+  ></app-beer-list>
+
+  <app-beer-list
+    [brewers]="brewers"
+    [type]="brewerType.Disliked"
+  ></app-beer-list>
+</div>
+

@@ -1,0 +1,28 @@
+// Overwriting styles for Material pipes (dark theme)
+
+.theme-dark {
+  .mat-select-value {
+    color: $color-white;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-label,
+  .mat-select-arrow {
+    color: rgba($color-white, .54);
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: rgba($color-white, .42);
+  }
+
+  .mat-dialog-container,
+  .mat-option {
+    color: $color-white;
+    background-color: $color-black;
+  }
+
+  .mat-option:hover:not(.mat-option-disabled),
+  .mat-option:focus:not(.mat-option-disabled) {
+    color: $color-white;
+    background-color: $color-primary;
+  }
+}

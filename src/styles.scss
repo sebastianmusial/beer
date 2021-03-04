@@ -1,0 +1,15 @@
+@import 'styles/styles';
+@import 'styles/general/material';
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: $font-family-default;
+  font-size: $font-size-medium;
+  font-weight: 300;
+}
+
+.theme-dark {
+  background-color: rgba($color-black, .75);
+  color: $color-white;
+}

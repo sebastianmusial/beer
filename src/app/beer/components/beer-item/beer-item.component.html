@@ -1,0 +1,15 @@
+<div class="beer-item__thumbnail">
+  <img
+    class="beer-item__img"
+    [src]="beer?.image_url || placeholder"
+    [alt]="beer?.name"
+  />
+</div>
+<div class="beer-item__content">
+  <div class="beer-item__name">
+    {{ beer?.name }}
+  </div>
+  <div class="beer-item__info">
+    {{ beer?.type }} | {{ beer?.price }} $
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<ng-container *ngIf="settings$ | async as settings">
+  <app-beer-filters
+    [brewers]="brewers"
+    [brewerControl]="brewerControl"
+    [brewerType]="type"
+  ></app-beer-filters>
+  <div
+    *ngIf="brewerControl.value as brewer; else selectBrewer"
+    class="beer-list__items"
+  >
+    <app-beer-item
+      *ngFor="let beer of (brewer.beers | BeerSortPipe:settings.sortBy:settings.sortDir | slice:0:settings.limit * page)"
+      [beer]="beer"
+      (click)="openDialog(beer)"
+    ></app-beer-item>
+
+    <button
+      *ngIf="settings.limit * page < brewer.beers.length"
+      class="beer-list__button"
+      mat-raised-button
+      color="primary"
+      (click)="onLoadMore()"
+    >
+      Load more
+    </button>
+  </div>
+</ng-container>
+
+<ng-template #selectBrewer>
+  Please select brewer from the list.
+</ng-template>
